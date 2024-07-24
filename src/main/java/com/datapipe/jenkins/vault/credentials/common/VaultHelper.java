@@ -97,6 +97,11 @@ public class VaultHelper {
         try {
             Map<String, String> values = getVaultSecret(secretPath, prefixPath, namespace, engineVersion, context);
 
+            String msg = String.format(
+                "Retrieving vault secret path values: %s",
+                values);
+            LOGGER.info(msg);
+
             if (!values.containsKey(secretKey)) {
                 String message = String.format(
                     "Key %s could not be found in path %s",
